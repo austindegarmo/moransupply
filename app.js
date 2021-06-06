@@ -1,4 +1,9 @@
-document.getElementsByClass('btn btn-primary btn-sm').addEventListener("click", function() {
+$(document).ready(function(){
 
-	
-})
+	  $('#contractor').click(function() {
+		window.location.replace("contractors/contractors.html");
+	});
+
+});
+
+
