@@ -9,6 +9,8 @@ $(document).ready(function(){
 	  	window.location.assign("homeowners/homeowners.html");
 	  });
 
+	  $('#miscassholes')
+
 });
 
 
