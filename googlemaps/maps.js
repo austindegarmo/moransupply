@@ -38,7 +38,7 @@ function initMap() {
   });
 }
 
-
+console.log(pos);
 
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -57,15 +57,15 @@ function obtainDirections () {
   // const userData  = new routeMap;
   directionsService.route(
     {
-            origin: "190 Main Street, Ottawa, Canada",
-            destination: "290 First Avenue, Ottawa, Canada",
+            origin: pos,
+            destination: "415 40th St, Oakland, California",
             travelMode: "DRIVING"
     },
     (response, status) => {
      console.log(response);
      console.log(status);
     }
-)
+  )
 }
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
@@ -85,6 +85,8 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     .catch((e) => window.alert("Directions request failed due to " + status));
 }
 
+obtainDirections();
+calculateAndDisplayRoute();
 
 console.log("got to the end");
 window.initMap = initMap;
