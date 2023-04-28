@@ -51,20 +51,20 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   //  Start of beggining of directions objects and services 
 
 
-function obtainDirections () {
-  // const userData  = new routeMap;
-  directionsService.route(
-    {
-            origin: pos,
-            destination: "415 40th St, Oakland, California",
-            travelMode: "DRIVING"
-    },
-    (response, status) => {
-     console.log(response);
-     console.log(status);
-    }
-  )
-}
+// function obtainDirections () {
+//   // const userData  = new routeMap;
+//   DirectionsService.route(
+//     {
+//             origin: pos,
+//             destination: "415 40th St, Oakland, California",
+//             travelMode: "DRIVING"
+//     },
+//     (response, status) => {
+//      console.log(response);
+//      console.log(status);
+//     }
+//   )
+// }
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
   directionsService
@@ -83,7 +83,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     .catch((e) => window.alert("Directions request failed due to " + status));
 }
 
-obtainDirections();
+// obtainDirections();
 calculateAndDisplayRoute();
 
 console.log("got to the end");
