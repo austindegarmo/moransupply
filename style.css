@@ -34,3 +34,9 @@ color: skyblue;
    max-height: 30%;
    padding-top: 25%;
  }
+
+ @media (max-width:500px) {
+   .jumbotron  {
+      background-position: center;
+   }
+ }
