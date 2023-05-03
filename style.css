@@ -40,3 +40,7 @@ color: skyblue;
       background-position: center;
    }
  }
+
+ .btn btn-outline-light btn-lg {
+   size-adjust: auto;
+ }
