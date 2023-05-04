@@ -45,4 +45,6 @@ color: skyblue;
    size-adjust: auto;
  }
 
- 
+ ul.nav {
+   color: cornflowerblue;
+ }
