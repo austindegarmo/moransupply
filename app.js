@@ -9,8 +9,10 @@ $(document).ready(function(){
 	  	window.location.assign("homeowners/homeowners.html");
 	  });
 
-	  $('#miscassholes')
-
+	  $('#pills-contractors-tab').on('click', function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	  })
 });
 
 
