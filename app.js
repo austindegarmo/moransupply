@@ -12,6 +12,7 @@ $(document).ready(function(){
 	  $('#pills-contractors-tab').on('click', function (e) {
 		e.preventDefault()
 		$(this).tab('show')
+		console.log("Got to the end")
 	  })
 });
 
