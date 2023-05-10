@@ -50,7 +50,19 @@ color: skyblue;
    background-size: 500px 300px;
  }
 
- /* .carousel-item {
+ /* .carousel-inner {
   max-width: fit-content;
-  max-height: fit-content;
+  max-height: 50%;
  } */
+
+ .carousel .carousel-item {
+  height: 500px;
+}
+
+/* .carousel-item img {
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  min-height: 500px;
+} */
