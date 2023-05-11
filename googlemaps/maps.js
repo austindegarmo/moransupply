@@ -1,54 +1,55 @@
-let map, infoWindow;
+// let map, infoWindow;
+// let directionsService, directionsRenderer;
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 6,
-  });
-  infoWindow = new google.maps.InfoWindow();
+// function initMap() {
+//   map = new google.maps.Map(document.getElementById("map"), {
+//     center: { lat: -34.397, lng: 150.644 },
+//     zoom: 6,
+//   });
+//   infoWindow = new google.maps.InfoWindow();
 
-  const locationButton = document.createElement("button");
+//   const locationButton = document.createElement("button");
 
-  locationButton.textContent = "Pan to Current Location";
-  locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-  locationButton.addEventListener("click", () => {
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-          console.log(pos)  
-          infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
-          infoWindow.open(map);
-          map.setCenter(pos);
-        },
-        () => {
-          handleLocationError(true, infoWindow, map.getCenter());
-        }
-      );
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-  });
-}
+//   locationButton.textContent = "Pan to Current Location";
+//   locationButton.classList.add("custom-map-control-button");
+//   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+//   locationButton.addEventListener("click", () => {
+//     // Try HTML5 geolocation.
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition(
+//         (position) => {
+//           const pos = {
+//             lat: position.coords.latitude,
+//             lng: position.coords.longitude,
+//           };
+//           console.log(pos)  
+//           infoWindow.setPosition(pos);
+//           infoWindow.setContent("Location found.");
+//           infoWindow.open(map);
+//           map.setCenter(pos);
+//         },
+//         () => {
+//           handleLocationError(true, infoWindow, map.getCenter());
+//         }
+//       );
+//     } else {
+//       // Browser doesn't support Geolocation
+//       handleLocationError(false, infoWindow, map.getCenter());
+//     }
+//   });
+// }
 
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(
-    browserHasGeolocation
-      ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation."
-  );
-  infoWindow.open(map);
-}
-  //  Start of beggining of directions objects and services 
+// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+//   infoWindow.setPosition(pos);
+//   infoWindow.setContent(
+//     browserHasGeolocation
+//       ? "Error: The Geolocation service failed."
+//       : "Error: Your browser doesn't support geolocation."
+//   );
+//   infoWindow.open(map);
+// }
+//   //  Start of beggining of directions objects and services 
 
 
 // function obtainDirections () {
@@ -66,6 +67,101 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 //   )
 // }
 
+// function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+//   directionsService
+//     .route({
+//       origin: {
+//         query: document.getElementById("start").value,
+//       },
+//       destination: {
+//         query: document.getElementById("end").value,
+//       },
+//       travelMode: google.maps.TravelMode.DRIVING,
+//     })
+//     .then((response) => {
+//       directionsRenderer.setDirections(response);
+//     })
+//     .catch((e) => window.alert("Directions request failed due to " + status));
+// }
+
+// // obtainDirections();
+// calculateAndDisplayRoute();
+
+// console.log("got to the end");
+// window.initMap = initMap;
+
+
+let map, infoWindow;
+let directionsService, directionsRenderer;
+let pos;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 6,
+  });
+  infoWindow = new google.maps.InfoWindow();
+
+  const locationButton = document.createElement("button");
+
+  locationButton.textContent = "Pan to Current Location";
+  locationButton.classList.add("custom-map-control-button");
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+  locationButton.addEventListener("click", () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          console.log(pos);
+          infoWindow.setPosition(pos);
+          infoWindow.setContent("Location found.");
+          infoWindow.open(map);
+          map.setCenter(pos);
+        },
+        () => {
+          handleLocationError(true, infoWindow, map.getCenter());
+        }
+      );
+    } else {
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  });
+
+  // Create directions service and renderer objects
+  directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+
+  // Call the function to calculate and display route
+  calculateAndDisplayRoute(directionsService, directionsRenderer);
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
+  );
+  infoWindow.open(map);
+}
+
+function obtainDirections() {
+  directionsService.route(
+    {
+      origin: pos, // Make sure pos is defined or replace it with a specific origin
+      destination: "415 40th St, Oakland, California",
+      travelMode: "DRIVING",
+    },
+    (response, status) => {
+      console.log(response);
+      console.log(status);
+    }
+  );
+}
+
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
   directionsService
     .route({
@@ -80,11 +176,10 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     .then((response) => {
       directionsRenderer.setDirections(response);
     })
-    .catch((e) => window.alert("Directions request failed due to " + status));
+    .catch((status) => window.alert("Directions request failed due to " + status));
 }
 
-// obtainDirections();
-calculateAndDisplayRoute();
+obtainDirections(); // Call the obtainDirections function
 
 console.log("got to the end");
 window.initMap = initMap;
