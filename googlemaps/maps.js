@@ -134,6 +134,15 @@ function initMap() {
               if (status === 'OK') {
                   // Display the directions on the map
                   directionsDisplay.setDirections(response);
+
+                  var steps = response.routes[0].legs[0].steps;
+                  var directionsList = document.getElementById('directions-list');
+
+                  for (var i=0; i < steps.length; i++) {
+                    var listItem = document.createElement('li');
+                    listItem.innerHTML = steps[i].instructions;
+                    directionsList.appendChild(listItem);
+                  }
               } else {
                   // Handle error cases
                   window.alert('Directions request failed due to ' + status);
