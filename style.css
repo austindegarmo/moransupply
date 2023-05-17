@@ -46,10 +46,10 @@ color: skyblue;
 }
 
 
-@media (min-width: 400px) {
+@media (min-width: 320px) and (max-width: 468px) {
   
   .btn-lg {
-    padding: 100px 200px;
+    padding: 10px 100px;
     font-size: 1.5rem;
   } 
   #moransupplybackground {
@@ -60,15 +60,15 @@ color: skyblue;
   } 
 }
 
-@media (max max-width) {
+@media (min-width: 500px) and (max-width: 768px) {
 
   .btn-lg {
-    padding: 10px 20px;
+    padding: 10px 200px;
   }
 
   #moransupplybackground {
     height: 600px;
-    background-position: center;
+    background-position: top right;
   }
 
 }
