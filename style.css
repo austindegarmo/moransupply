@@ -46,19 +46,38 @@ color: skyblue;
 }
 
 
-@media (min-width: 576px) {
+@media (min-width: 400px) {
   
   .btn-lg {
-    padding: 10px 20px;
+    padding: 100px 200px;
     font-size: 1.5rem;
   } 
+  #moransupplybackground {
+    height: 600px;
+    background-position-y: top;
+    background-position-x: calc(100% + 300px);
+    padding-right: 500px;
+  } 
+}
+
+@media (max max-width) {
+
+  .btn-lg {
+    padding: 10px 20px;
+  }
+
+  #moransupplybackground {
+    height: 600px;
+    background-position: center;
+  }
+
 }
    
-#moransupplybackground {
+/* #moransupplybackground {
   height: 600px;
   background-position-y: top;
   background-position-x: calc(100% + 300px);
   padding-right: 500px;
 } 
 
-    
+     */
