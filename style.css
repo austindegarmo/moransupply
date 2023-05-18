@@ -1,3 +1,7 @@
+.mb-3 {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
 .container { 
 color: skyblue;
  }
@@ -56,10 +60,12 @@ color: skyblue;
   #moransupplybackground {
     height: 600px;
     background-position-y: top;
-    background-position-x: calc(100% + 300px);
-    padding-right: 500px;
+    background-position-x: calc(100% + 725px);
+    padding-bottom: 500px;
 
   } 
+
+  
 }
 
 @media (min-width: 500px) and (max-width: 768px) {
@@ -72,6 +78,16 @@ color: skyblue;
     height: 600px;
     background-position: top right;
   }
+
+}
+
+@media (min-width: 900px) {
+
+  #moransupplybackground {
+
+    background-position: top right;
+
+  } 
 
 }
    
