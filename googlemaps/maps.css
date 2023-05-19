@@ -31,3 +31,8 @@ body {
 .custom-map-control-button:hover {
   background: rgb(235, 235, 235);
 }
+
+#background-color {
+  background-color:crimson;
+  height: 100%;
+}
