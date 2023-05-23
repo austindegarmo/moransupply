@@ -64,6 +64,12 @@ color: skyblue;
     padding-bottom: 500px;
 
   } 
+  .moransupply-bg .mask {
+    display: none;
+  }
+  .moransupply-bg .btn {
+    display: inline-block;
+  }
 
   
 }

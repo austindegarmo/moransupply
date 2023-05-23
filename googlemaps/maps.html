@@ -3,20 +3,15 @@
 <head>
     <title>Google Maps Directions</title>
     <script type="text/javascript" src="maps.js"></script>
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
+    <link rel='stylesheet' type="text/css" href="maps.css"></script>
 </head>
 <body>
-    <h1>Directions to Moran Supply</h1>
-    <div id="map"></div>
+    <div class="background-color">
+        <h1>Directions to Moran Supply</h1>
+        <div id="map"></div>
+    </div>
 
-    <div id="directions-list"></div>
-
-    <div id="background-color">This is where the background color is</div>    
+    <div id="directions-list"></div> 
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHPqeODFGDOJuwUEDOcvaZRLv-Ix070KQ&callback=initMap" async defer></script>
 </body>
