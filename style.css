@@ -7,9 +7,13 @@ color: skyblue;
  }
 
 
- .btn btn-outline-light btn-lg {
-color: skyblue;
+ .btn btn-outline-info btn-lg {
+color: rgb(0, 0, 0);
 
+ }
+
+ #buttonLink {
+  color: black;
  }
 
  #kohler {
@@ -47,14 +51,18 @@ color: skyblue;
 
 
 @media (min-width: 320px) and (max-width: 468px) {
+
+  #titleLine {
+    padding-bottom: 20px;
+  }
   
-  .btn-lg {
-    padding: 10px 20px 20px 10px;
-    font-size: 1.5rem;
-    max-width: 80%;
-  } 
+  #buttonLink {
+    /* margin: 100px */
+
+  }
+ 
   #moransupplybackground {
-    height: 600px;
+    height: 500px;
     background-position-y: top;
     background-position-x: calc(100% + 725px);
     padding-top: 200px;
