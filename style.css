@@ -52,14 +52,13 @@ color: rgb(0, 0, 0);
 
 @media (min-width: 320px) and (max-width: 468px) {
 
-  #titleLine {
-    padding-bottom: 20px;
+  .text-white {
+    align-self:
   }
-  
-  #buttonLink {
-    /* margin: 100px */
 
-  }
+ #buttonLine {
+  align-self: flex-end;
+ }
  
   #moransupplybackground {
     height: 500px;
