@@ -2,16 +2,6 @@
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
-.container { 
-color: skyblue;
- }
-
-
- .btn btn-outline-info btn-lg {
-color: rgb(0, 0, 0);
-
- }
-
  #buttonLink {
   color: black;
  }
@@ -41,7 +31,7 @@ color: rgb(0, 0, 0);
 
  .moransupply-bg {
   background-image: url('./assets/12909473_1172382652801750_1510564092936041517_o.jpg');
-  height: 600px;
+  height: 450px;
  }
  
 
@@ -49,14 +39,29 @@ color: rgb(0, 0, 0);
   height: 500px;
 }
 
+.fade-img {
+  position: relative; 
+}
+
+.fade-img:after {
+  content:""; 
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+  height: 40%;  
+}
+
+
 
 @media (min-width: 320px) and (max-width: 468px) {
 
-  .text-white {
-    align-self:
+  #titleLine {
+  align-self: flex-start;
   }
 
- #buttonLine {
+ .btn btn-primary {
   align-self: flex-end;
  }
  
@@ -64,14 +69,9 @@ color: rgb(0, 0, 0);
     height: 500px;
     background-position-y: top;
     background-position-x: calc(100% + 725px);
-    padding-top: 200px;
+    
     margin-top: -35%;
-
   } 
-  h1 {
-    display: none;
-  }
-
   
 }
 
@@ -97,12 +97,3 @@ color: rgb(0, 0, 0);
   } 
 
 }
-   
-/* #moransupplybackground {
-  height: 600px;
-  background-position-y: top;
-  background-position-x: calc(100% + 300px);
-  padding-right: 500px;
-} 
-
-     */
